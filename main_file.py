@@ -57,6 +57,6 @@ while True:
         print('ecc1 = {0:4.2E}, ecc2 = {1:4.2E}, ecc3 = {2:4.2E}'.format(ecc1, ecc2, ecc3))
         counter = 0
     counter += 1
-    
+
     
     rate(100)
