@@ -1,5 +1,5 @@
 from vpython import *
-from star_data import *
+from star_data import eccentricity
 
 G = 6.67E-11
 AU = 1.5E11
@@ -38,7 +38,7 @@ while True:
     L = mu*cross((starA.pos - starB.pos), (starA.vel - starB.vel))
     A = cross((starA.vel-starB.vel),(L/mu))- G*M*(starA.pos-starB.pos)/r
     #accentricity
-    E = 0.5*mu*mag2(starA.vel - starB.vel) - G*M*mu/r
+    E = eccentricity
     ecc1 = mag(A)/(G*M) #method 1
     ecc2 = sqrt(1 + 2*mag2(L)*E/((G*M)**2*mu**3))
     ecc3 = (rmax-rmin)/(2*a)#geometrically
