@@ -24,7 +24,7 @@ starA= sphere(pos=starAInitial, mass = massA, radius = 1E10, color = color.orang
 starB = sphere(pos=starBInitial, mass = massB, radius = 1E10, color = color.red)
 
 opp1 = sphere(pos=vec(0,0,0), mass = 0, radius = 1E10, color = color.orange)
-opp2 = sphere(pos=vec(0,0,0), mass = 0, radius = 1E10, color = color.red)
+opp2 = sphere(pos=vec(0,0,0), mass = 0, radius =1E10, color = color.red)
 
 
 #inital condistions
