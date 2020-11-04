@@ -20,7 +20,7 @@ A = vec(0,0,0) #Laplace-Rung-Lenz vector
 M = p_star.mass + s_star.mass
 mu = p_star.mass*s_star.mass/M
 rmin = AU
-rmax = 0
+rmax = 0 
 h = 1E5
 scene.autoscale = 1
 
