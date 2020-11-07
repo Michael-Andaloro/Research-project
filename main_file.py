@@ -1,3 +1,5 @@
+from vpython import sphere, vec, color, curve, scene, mag, cross, mag2
+from math import sqrt, pi
 from vpython import *
 from star_data import eccentricity, p_radius, s_radius, p_mass, s_mass
 
