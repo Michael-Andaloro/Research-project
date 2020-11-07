@@ -6,16 +6,16 @@ AU = 1.5E11
 Year = 365.25*24*60*60
 
 p_star = sphere(pos = vec(-AU, 0,0), mass = 2E30, radius = p_radius, color = color.yellow)
-s_star = sphere(pos = vec(AU, 0,0), mass = 2E30, radius = s_radius, color = color.red)
-unknown = sphere(pos = vec(-AU/2, 0, 0), mass = 2E30, radius = p_radius, color = color.green)
+s_star = sphere(pos = vec(AU, 0,0), mass = 1.09E30, radius = s_radius, color = color.red)
+#unknown = sphere(pos = vec(-AU/2, 0, 0), mass = 2E30, radius = p_radius, color = color.green)
 
 p_star.vel = vec(0, 1.1E4, 0)
 s_star.vel = vec(0, -1.1E4, 0)
-unknown.vel = vec(0, 1.1E4, 0)
+#unknown.vel = vec(0, 1.1E4, 0)
 
 p_star.trail = curve(pos = p_star.pos, color = p_star.color)
 s_star.trail = curve(pos = s_star.pos, color = s_star.color)
-unknown.trail = curve(pos = unknown.pos, color = unknown.color)
+#unknown.trail = curve(pos = unknown.pos, color = unknown.color)
 
 counter = 0 #for printing values now and then
 L = vec(0,0,0) #angular momentum of sys
@@ -48,14 +48,14 @@ while True:
     #implement euler
     p_star.vel += F/p_star.mass*h
     s_star.vel -= F/s_star.mass*h
-    unknown.vel += F/unknown.mass*h
+    #unknown.vel += F/unknown.mass*h
     
     p_star.pos += p_star.vel*h
     s_star.pos += s_star.vel*h
-    unknown.pos += unknown.vel*h
+    #unknown.pos += unknown.vel*h
     p_star.trail.append(pos = p_star.pos)
     s_star.trail.append(pos = s_star.pos)
-    unknown.trail.append(pos = unknown.pos)
+    #unknown.trail.append(pos = unknown.pos)
     
     #print occasionally
     if counter >=100:
