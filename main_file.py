@@ -9,8 +9,8 @@ AU = 1.5E11
 Year = 365.25*24*60*60
 
 # Create the two stars
-p_star = sphere(pos = vec(-AU, 0,0), mass = p_mass, radius = p_radius, color = color.yellow)
-s_star = sphere(pos = vec(AU, 0,0), mass = s_mass, radius = s_radius, color = color.red)
+p_star = sphere(pos = vec(3.52*AU, 0,0), mass = p_mass, radius = p_radius, color = color.yellow) #starA
+s_star = sphere(pos = vec(6.45*AU, 0,0), mass = s_mass, radius = s_radius, color = color.red) # starB
 
 # Find the center of mass of the two stars
 center = (p_star.pos*p_star.mass+s_star.pos*s_star.mass)/(p_star.mass+s_star.mass)
