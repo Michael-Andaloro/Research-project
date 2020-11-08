@@ -5,14 +5,14 @@ This file contains all the relevant data about the stars
 's' represents 'secondary'
 """
 
-mass_ratio = 0.55
+mass_ratio = 0.545
 p_effective_temperature = 6300
 s_effective_temperature = 3800
 inclination = 76.19 # Degrees
 semimajor_axis = 5
-p_mass = 2.0 # E30
-s_mass = 1.09
-p_radius = 1.670691 # x readius of the sun
+p_mass = 2.0E30
+s_mass = 1.09E30
+p_radius = 1.670691 # x radius of the sun
 s_radius = 1.643034
 first_lagrange_point = 2.968696 # AU
 second_lagrange_point = 2.644172 # AU

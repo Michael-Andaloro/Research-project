@@ -1,25 +1,30 @@
 from vpython import sphere, vec, color, curve, scene, mag, cross, mag2
 from math import sqrt, pi
 from vpython import *
+from lagrange_finder import lagrange_finder
 from star_data import eccentricity, p_radius, s_radius, p_mass, s_mass
 
 G = 6.67E-11
 AU = 1.5E11
 Year = 365.25*24*60*60
 
-p_star = sphere(pos = vec(-AU, 0,0), mass = 2E30, radius = p_radius, color = color.yellow)
-s_star = sphere(pos = vec(AU, 0,0), mass = 1.09E30, radius = s_radius, color = color.red)
-#unknown = sphere(pos = vec(-AU/2, 0, 0), mass = 2E30, radius = p_radius, color = color.green)
+# Create the two stars
+p_star = sphere(pos = vec(-AU, 0,0), mass = p_mass, radius = p_radius, color = color.yellow)
+s_star = sphere(pos = vec(AU, 0,0), mass = s_mass, radius = s_radius, color = color.red)
 
+# Find the center of mass of the two stars
+center = (p_star.pos*p_star.mass+s_star.pos*s_star.mass)/(p_star.mass+s_star.mass)
+
+# Create their velocities
 p_star.vel = vec(0, 1.1E4, 0)
 s_star.vel = vec(0, -1.1E4, 0)
-#unknown.vel = vec(0, 1.1E4, 0)
 
+# Create the trails so we can track their orbits
 p_star.trail = curve(pos = p_star.pos, color = p_star.color)
 s_star.trail = curve(pos = s_star.pos, color = s_star.color)
-#unknown.trail = curve(pos = unknown.pos, color = unknown.color)
 
-counter = 0 #for printing values now and then
+
+counter = 0 #for printing values now and then 
 L = vec(0,0,0) #angular momentum of sys
 A = vec(0,0,0) #Laplace-Rung-Lenz vector
 M = p_star.mass + s_star.mass
@@ -29,6 +34,7 @@ rmax = 0
 h = 1E5
 scene.autoscale = 1
 
+# Main math is done here to calculate the orbits
 while True:
     r = mag(p_star.pos - s_star.pos)
     F = -G*p_star.mass*s_star.mass*(p_star.pos-s_star.pos)/r**3 #force on star A
@@ -54,10 +60,8 @@ while True:
     
     p_star.pos += p_star.vel*h
     s_star.pos += s_star.vel*h
-    #unknown.pos += unknown.vel*h
     p_star.trail.append(pos = p_star.pos)
     s_star.trail.append(pos = s_star.pos)
-    #unknown.trail.append(pos = unknown.pos)
     
     #print occasionally
     if counter >=100:

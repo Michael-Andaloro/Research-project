@@ -1,14 +1,14 @@
 # dwarfnova.py
 # simulates a dwarf nova system
 
-from visual import*
+from vpython import*
 from math import*
 from random import*
 
 autoscale = 0
 
-starA = sphere(pos=(0, 0, 0), radius=6.6e6, mass=1.5e30, color=color.white)
-starB = sphere(pos=(5.80e8, 0, 0), radius=1.5e8, mass=3.75e29, color=color.red)
+starA = sphere(pos= vec(0, 0, 0), radius=6.6e6, mass=1.5e30, color=color.white)
+starB = sphere(pos= vec(5.80e8, 0, 0), radius=1.5e8, mass=3.75e29, color=color.red)
 center = (starA.pos*starA.mass+starB.pos*starB.mass)/(starA.mass+starB.mass)
 print (center)
 CM = sphere(pos = center, radius=2e6, color=color.green)
@@ -17,9 +17,9 @@ P = 7.8719e3  #orbital period from Olech
 L = 2e8     
 G=6.67e-11   # gravitational constant
 
-xaxis=curve(pos=[(center.x,0,0), (L-center.x,0,0)], color=(0.5,0.5,0.5))
-yaxis=curve(pos=[(center.x,0,0), (center.x,L,0)], color=(0.5,0.5,0.5))
-zaxis=curve(pos=[(center.x,0,0), (center.x,0,L)], color=(0.5,0.5,0.5))
+xaxis=curve(pos=[(center.x,0,0), (L-center.x,0,0)], color= vec(0.5,0.5,0.5))
+yaxis=curve(pos=[(center.x,0,0), (center.x,L,0)], color= vec(0.5,0.5,0.5))
+zaxis=curve(pos=[(center.x,0,0), (center.x,0,L)], color= vec(0.5,0.5,0.5))
 
 starB.velocity=4.0*vector(0,+6.78e4,0)
 starA.velocity=4.0*vector(0,-6.78e4,0)*0.25
@@ -84,7 +84,7 @@ def rk4(star):
     star.velocity += (k1v + 2.0*k2v + 2.0*k3v + k4v)/6.0
     star.pos += (k1x + 2.0*k2x + 2.0*k3x + k4x)/6.0
 
-while true:
+while True:
     r = mag(starA.pos - starB.pos) 
     for i in range (0,2):
         if i == 1:
