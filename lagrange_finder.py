@@ -28,5 +28,5 @@ def lagrange_finder(star_1, star_2):
 
     
 if __name__ == '__main__':
-    print("Running test case")
+    print("Running test case") 
     lagrange_finder(vec(10, 20, 30), vec(10, 40, 70))
