@@ -1,3 +1,4 @@
+from vpython import *
 """
 This file contains all the relevant data about the stars
 
@@ -26,3 +27,7 @@ p_log_g = 4.574198
 s_log_g = 4.326901
 eccentricity = 0.01001
 orbital_period = 0.7443 #days
+
+# Positions of the stars
+p_vec = vec(2456344, 0, 0)
+s_vec = vec(4507053, 0, 0)

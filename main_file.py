@@ -2,15 +2,15 @@ from vpython import sphere, vec, color, curve, scene, mag, cross, mag2
 from math import sqrt, pi
 from vpython import *
 from lagrange_finder import lagrange_finder
-from star_data import eccentricity, p_radius, s_radius, p_mass, s_mass
+from star_data import eccentricity, p_radius, s_radius, p_mass, s_mass, p_vec, s_vec
 
 G = 6.67E-11
 AU = 1.5E11
 Year = 365.25*24*60*60
 
 # Create the two stars
-p_star = sphere(pos = vec(3.52*AU, 0,0), mass = p_mass, radius = p_radius, color = color.yellow) #starA
-s_star = sphere(pos = vec(6.45*AU, 0,0), mass = s_mass, radius = s_radius, color = color.red) # starB
+p_star = sphere(pos = vec(AU, 0, 0), mass = p_mass, radius = p_radius, color = color.yellow) #starA
+s_star = sphere(pos = vec(-AU, 0, 0), mass = s_mass, radius = s_radius, color = color.red) # starB
 
 # Find the center of mass of the two stars
 center = (p_star.pos*p_star.mass+s_star.pos*s_star.mass)/(p_star.mass+s_star.mass)
