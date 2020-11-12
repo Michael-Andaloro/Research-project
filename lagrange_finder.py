@@ -1,4 +1,5 @@
 from vpython import *
+from math import sqrt
 
 """
 The function finds the lagrange points from the 2 stars.
@@ -29,12 +30,23 @@ def lagrange_finder(star_1, star_2):
 
     # Find lagrange point 4 (equilateral triangle)
     # Find halfway point between the two
-    halfway = star_2.x - star_1.x
-    print(halfway)
+    length = star_2.x - star_1.x
+    halfway = length/2
+    height = sqrt(length*length - halfway*halfway)
+    lp4 = vec(halfway, height, 0)
+    print(lp4)
+    
 
     # Find lagrange point 5 (equilateral triangle)
 
-    return lp2
+    return lp2, lp4
 if __name__ == '__main__':
-    print("Running test case") 
-    lagrange_finder(vec(10, 20, 30), vec(20, 40, 70))
+    print("Running test case")
+    star_1 = vec(0, 0, 0)
+    star_2 = vec(10, 10, 0)
+    l2, l4 = lagrange_finder(star_1, star_2)
+    first = sphere(pos = star_1, radius = 1, color = color.green)
+    second = sphere(pos = star_2, radius = 1, color = color.red)
+    l2 = sphere(pos = l2, radius = 1, color = color.blue)
+    l4 = sphere(pos = l4, radius = 1, color = color.orange)
+
