@@ -32,7 +32,7 @@ def lagrange_finder(star_1, star_2):
     # Find halfway point between the two
     length = star_2.x - star_1.x
     halfway = length/2
-    height = sqrt(length*length - halfway*halfway)
+    height = length*sqrt(3)/2
     lp4 = vec(halfway, height, 0)
     print(lp4)
     
