@@ -34,6 +34,7 @@ rmax = 0
 h = 1E5
 scene.autoscale = 1
 
+
 # Main math is done here to calculate the orbits
 while True:
     r = mag(p_star.pos - s_star.pos)
