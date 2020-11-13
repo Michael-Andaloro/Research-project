@@ -31,7 +31,7 @@ def lagrange_finder(star_1, star_2):
     # Find lagrange point 4 (equilateral triangle)
     # Find halfway point between the two
     length = star_2.x - star_1.x
-    halfway = length/2
+    halfway = length/2 
     height = length*sqrt(3)/2
     lp4 = vec(halfway, height, 0)
     print(lp4)
